@@ -21,7 +21,7 @@ class Runner:
         self.seed = seed
         self.task = task
         self.set_seed(seed)
-        self.alphas = np.linspace(0, 2, 9)[1:]
+        self.alphas = [1.0] # np.linspace(0, 2, 9)[1:]
         self.connectomes = connectomes
         self.encoding_strategies = encoding_strategies
         self.evaluation_metrics = evaluation_metrics

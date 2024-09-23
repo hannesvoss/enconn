@@ -21,15 +21,15 @@ if __name__ == '__main__':
         ],
         connectomes=[
             'drosophila',
-            # 'macaque_modha',
+            'macaque_modha',
             'mouse',
-            # 'rat'
+            'rat'
         ],
         evaluation_metrics=[
-            'r2_score',
+            # 'r2_score',
             'mean_squared_error',
             # 'root_mean_squared_error',
-            'mean_absolute_error',
+            # 'mean_absolute_error',
             # 'corrcoef',
             'accuracy_score',
             # 'balanced_accuracy_score',
@@ -41,8 +41,7 @@ if __name__ == '__main__':
     )
 
     experiment.run(
-        n_trials=20,  # 4050
-        input_gain=0.0001,
+        n_trials=50,
     )
 
     experiment.plot_metrics()

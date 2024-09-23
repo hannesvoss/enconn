@@ -145,10 +145,3 @@ class OneStepInference(Task):
         choices_vec = np.tile(row['Choices_Presentation'], choices_presentation_steps)
         problem_vec = np.concatenate((goal_vec, delay_vec, choices_vec))
         return problem_vec
-
-    def __repr__(self):
-        return '\n'.join([
-            f'Maze DataSet Generator',
-            f'Goal Presentation Steps: {self.goal_presentation_steps}',
-            f'Delay Steps: {self.delay_steps}',
-            f'Choices Presentation Steps: {self.choices_presentation_steps}'])

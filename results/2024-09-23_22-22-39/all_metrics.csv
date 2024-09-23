@@ -1,0 +1,13 @@
+mean_squared_error,accuracy_score,alpha,Strategy,Connectome
+0.007000000000000001,0.976,1.0,Temporal Encoding,drosophila
+0.005333333333333333,0.9786666666666667,1.0,Temporal Encoding,macaque_modha
+0.005333333333333333,0.9786666666666667,1.0,Temporal Encoding,mouse
+0.006999999999999999,0.9746666666666667,1.0,Temporal Encoding,rat
+0.005,0.98,1.0,Rank Order Encoding,drosophila
+0.006333333333333333,0.9746666666666667,1.0,Rank Order Encoding,macaque_modha
+0.005333333333333333,0.9786666666666667,1.0,Rank Order Encoding,mouse
+0.005333333333333333,0.9786666666666667,1.0,Rank Order Encoding,rat
+0.006333333333333333,0.976,1.0,Population Encoding,drosophila
+0.005,0.98,1.0,Population Encoding,macaque_modha
+0.005,0.98,1.0,Population Encoding,mouse
+0.006666666666666667,0.976,1.0,Population Encoding,rat
