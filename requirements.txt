@@ -1,3 +1,4 @@
 pip==21
 setuptools==65.5.0
 wheel==0.38.0
+pytest
