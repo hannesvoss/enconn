@@ -18,7 +18,7 @@ This project is designed to run experiments on spiking neural networks using var
 
 2. **Run the Experiment**: Execute the `main.py` file to start the experiment:
     ```sh
-    python3 main.py
+    python main.py
     ```
 
 3. **View Results**: The results will be saved in the `results` directory within the project directory. You can view the metrics and plots generated during the experiment.
