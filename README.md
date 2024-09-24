@@ -8,6 +8,7 @@ This project is designed to run experiments on spiking neural networks using var
 - `strategies.py`: Contains different encoding strategies for generating input data for the spiking neural network.
 - `tests.py`: Contains unit tests for the encoding strategies.
 - `runner.py`: Contains the `Runner` class, which handles the execution of the experiments, including data loading, running the workflow, and plotting the results.
+- `task.py`: Contains the task definition for the experiment.
 
 ## How to Run the Code
 
@@ -53,6 +54,17 @@ This project is designed to run experiments on spiking neural networks using var
     - Loads data and connectomes.
     - Runs the workflow for each encoding strategy and connectome.
     - Saves and plots the results.
+
+- **`task.py`**: 
+  - Contains the task definition for the experiment.
+
+## Task Explanation
+In the project a one-step inference task is implemented.
+This task can be interpreted as a one-step navigation task, where agents are presented with the goal location 
+(stimulus A) followed by possible choice directions (stimulus B).
+The choice to be made is the one moving closer to the goal.
+
+![Task](./images/task.png)
 
 ## Example Usage
 
