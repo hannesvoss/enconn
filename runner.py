@@ -21,7 +21,7 @@ class Runner:
         self.seed = seed
         self.task = task
         self.set_seed(seed)
-        self.alphas = [1.0] # np.linspace(0, 2, 9)[1:]
+        self.alphas = [1.0]  # np.linspace(0, 2, 9)[1:]
         self.connectomes = connectomes
         self.encoding_strategies = encoding_strategies
         self.evaluation_metrics = evaluation_metrics
@@ -39,6 +39,7 @@ class Runner:
         print(f'Initialize with connectomes: {self.connectomes}')
 
     def run(self, n_trials=4050, input_gain=0.0001):
+        """Run the experiment."""
         print(f'{self.name} is running')
         x, y = self.task.fetch_data(n_trials=n_trials, input_gain=input_gain)
 
@@ -69,11 +70,13 @@ class Runner:
         all_metrics.to_csv(os.path.join(self.output_dir, f'all_metrics.csv'), index=False)
 
     def set_seed(self, seed):
+        """Set the random seed for reproducibility."""
         self.seed = seed
         np.random.seed(self.seed)
         tf.random.set_seed(self.seed)
 
     def _load_data(self, connectome):
+        """Load the connectome data from the CSV files."""
         print(f'Loading connectome data for {connectome}')
         w = np.loadtxt(os.path.join(self.data_dir, connectome, 'conn.csv'), delimiter=',', dtype=float)
         labels = pd.read_csv(os.path.join(self.data_dir, connectome, 'labels.csv'))['Sensory'].values
@@ -82,18 +85,23 @@ class Runner:
         return w, labels
 
     def _run_workflow(self, w, x, y, input_nodes, output_nodes, rewire=False) -> DataFrame:
+        """Run the workflow for a given connectome."""
         conn = Conn(w=w)
         if rewire:
             conn.randomize(swaps=10)
 
+        # Scale and normalize the connectivity matrix
         conn.scale_and_normalize()
 
+        # Create the input weight matrix
         w_in = np.zeros((8, conn.n_nodes))
         w_in[:, input_nodes] = np.eye(1)
 
-        snn = SpikingNeuralNetwork(w=conn.w)  # activation_function='tanh'
+        # Create the reservoir and readout modules
+        snn = SpikingNeuralNetwork(w=conn.w)
         readout_module = Readout(estimator=readout.select_model(y))
 
+        # Split the data into training and testing sets
         x_train, x_test, y_train, y_test = readout.train_test_split(x, y)
 
         df_metrics = pd.DataFrame()
@@ -129,10 +137,11 @@ class Runner:
         return df_metrics
 
     def _run_experiment(self, connectome, x, y):
-        # load the connectome data
+        """Run the experiment for a given connectome."""
+        # Load the connectome data
         w, labels = self._load_data(connectome)
 
-        # run workflow for empirical network
+        # Run workflow for empirical network
         return self._run_workflow(
             w.copy(), x, y,
             input_nodes=np.where(labels == 1)[0],
@@ -140,6 +149,7 @@ class Runner:
         )
 
     def plot_metrics(self, metrics_file='all_metrics.csv'):
+        """Plot the evaluation metrics for each strategy and connectome."""
         # Load the metrics from the CSV file
         metrics_path = os.path.join(self.output_dir, metrics_file)
         metrics_df = pd.read_csv(metrics_path)

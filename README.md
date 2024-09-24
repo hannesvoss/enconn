@@ -1,7 +1,6 @@
-# enconn - Spiking Neural Network Experimentation
+# Encoding Strategies in Connectome-Informed Spiking Neural Networks (enconn)
 
 This project is designed to run experiments on spiking neural networks using various encoding strategies and evaluation metrics. The experiments are conducted on different connectomes, and the results are saved and visualized.
-(Studies centered around encoding strategies in connectome-informed spiking neural networks)
 
 ## Project Structure
 
@@ -49,9 +48,8 @@ This project is designed to run experiments on spiking neural networks using var
 
 ## Example Usage
 
-To run the experiment with specific parameters, modify the `main.py` file as needed. For example, you can change the number of trials or the input gain:
+To run the experiment with specific parameters, modify the `main.py` file as needed. For example, you can change the number of trials:
 ```python
 experiment.run(
     n_trials=10,  # Number of trials
-    input_gain=0.0001,  # Input gain
 )

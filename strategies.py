@@ -1,6 +1,6 @@
 import numpy as np
-from matplotlib import pyplot as plt
 import seaborn as sns
+from matplotlib import pyplot as plt
 
 
 def generate_poisson_spikes(rate, time_window=1.0):
@@ -9,6 +9,8 @@ def generate_poisson_spikes(rate, time_window=1.0):
 
 
 class Strategy(object):
+    """Strategy interface for encoding input data into spike times."""
+
     def __init__(self, name, show_plot=False, debug=False):
         self.name = name
         self.show_plot = show_plot

@@ -3,7 +3,7 @@ import pandas as pd
 from conn2res.tasks import Task
 
 
-# define the task (see repository on GitHub to learn more: https://github.com/8erberg/spatially-embedded-RNN)
+# Define the task (see repository on GitHub to learn more: https://github.com/8erberg/spatially-embedded-RNN)
 class OneStepInference(Task):
     """
     Objects of the OneStepInference class can create numpy and tf datasets of the first choice of the maze task.
@@ -41,7 +41,7 @@ class OneStepInference(Task):
         self.choices_presentation_steps = choices_presentation_steps
 
         # Construct mazes dataframe
-        ## Add encoded versions of the goal / choices presentations and the next step response
+        # Add encoded versions of the goal / choices presentations and the next step response
         self.mazesdf = self.import_maze_dic()
         self.mazesdf['Goal_Presentation'] = self.mazesdf['goal'].map({
             7: np.concatenate((np.array([1, 0, 0, 0]), np.repeat(0, 4))),
