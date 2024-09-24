@@ -13,7 +13,7 @@ This project is designed to run experiments on spiking neural networks using var
 
 1. **Install Dependencies**: Ensure you have Python installed. Install the required packages using pip:
     ```sh
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 2. **Run the Experiment**: Execute the `main.py` file to start the experiment:

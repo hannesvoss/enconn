@@ -5,7 +5,6 @@ import conn2res
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import tensorflow as tf
 from conn2res import readout
 from conn2res.connectivity import Conn
 from conn2res.readout import Readout
@@ -73,7 +72,6 @@ class Runner:
         """Set the random seed for reproducibility."""
         self.seed = seed
         np.random.seed(self.seed)
-        tf.random.set_seed(self.seed)
 
     def _load_data(self, connectome):
         """Load the connectome data from the CSV files."""
