@@ -11,6 +11,17 @@ This project is designed to run experiments on spiking neural networks using var
 
 ## How to Run the Code
 
+0. **Install conn2res toolbox**: Install the `conn2res` toolbox by following the instructions:
+    ```sh
+    git clone https://github.com/netneurolab/conn2res.git
+    cd conn2res
+    pip3 install .
+    cd ..
+    git clone -b v0.0.1 https://github.com/neurogym/neurogym.git
+    cd neurogym
+    pip3 install -e .
+    ```
+
 1. **Install Dependencies**: Ensure you have Python installed. Install the required packages using pip:
     ```sh
     pip3 install -r requirements.txt
